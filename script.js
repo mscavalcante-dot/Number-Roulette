@@ -12,13 +12,26 @@
     5.1 - Caso o jogador atingir o número máximo de tentativas, o jogo encerra com "Você perdeu! o número era X".
 */
 
+
+//Botões
 const dificuldades = document.querySelectorAll(".dificuldade");
-    dificuldades.forEach(botao => {
-        botao.addEventListener("click", () => {
-            dificuldades.forEach(outroBotao => {
-                if (outroBotao !== botao) {
-                    outroBotao.disabled = true;
-                }
-            });
+
+const btnDica = document.getElementById("dica");
+const btnChutar = document.getElementById("chute");
+
+dificuldades.forEach(botao => {
+    botao.addEventListener("click", () => {
+
+        // Desabilita as outras dificuldades
+        dificuldades.forEach(b => {
+            if (b !== botao) {
+                b.disabled = true;
+            }
         });
-        });
+
+        // Habilita Dica e Chutar
+        btnDica.disabled = false;
+        btnChutar.disabled = false;
+
+    });
+});
