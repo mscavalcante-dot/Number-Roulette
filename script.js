@@ -29,9 +29,20 @@ dificuldades.forEach(botao => {
             }
         });
 
+        // Show the number of attempts
+        document.getElementById("tentativas").textContent = "tentativas: " + tentativas(botao.id);
+
         // Habilita Dica e Chutar
         btnDica.disabled = false;
         btnChutar.disabled = false;
 
     });
 });
+
+//tentativas
+function tentativas(id) {
+    if (id === "facil") return 5;
+    if (id === "dificil") return 3;
+    if (id === "brutal") return 1;
+}
+
