@@ -14,35 +14,22 @@
 
 
 //Botões
-const dificuldades = document.querySelectorAll(".dificuldade");
-
 const btnDica = document.getElementById("dica");
 const btnChutar = document.getElementById("chute");
 
-dificuldades.forEach(botao => {
-    botao.addEventListener("click", () => {
-
-        // Desabilita as outras dificuldades
-        dificuldades.forEach(b => {
-            if (b !== botao) {
-                b.disabled = true;
-            }
-        });
-
-        // Show the number of attempts
-        document.getElementById("tentativas").textContent = "tentativas: " + tentativas(botao.id);
-
-        // Habilita Dica e Chutar
-        btnDica.disabled = false;
-        btnChutar.disabled = false;
-
-    });
-});
 
 //tentativas
-function tentativas(id) {
-    if (id === "facil") return 5;
-    if (id === "dificil") return 3;
-    if (id === "brutal") return 1;
-}
+const tentativas = 5
+document.getElementById("tentativas").textContent = "Você tem " + tentativas + " tentativas restantes.";
 
+
+//Número aleatório
+const numeroSecreto = Math.floor(Math.random() * 100) + 1;
+
+console.log(numeroSecreto);
+
+//Salvar input e comparar
+const palpite = parseInt(document.getElementById("palpite").value);
+if (palpite <= 100) {
+palpite === numeroSecreto ? alert("Uau!") : alert("poxa, o numero não era esse.")
+};
