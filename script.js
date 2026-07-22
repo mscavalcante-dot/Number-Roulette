@@ -19,8 +19,13 @@ const btnChutar = document.getElementById("chute");
 
 
 //tentativas
-const tentativas = 5
-document.getElementById("tentativas").textContent = "Você tem " + tentativas + " tentativas restantes.";
+let tentativas = 5
+document.getElementById("chute").addEventListener("click", function() {
+    if (tentativas > 0){
+    tentativas -= 1;
+    document.getElementById("tentativas").textContent = "Você tem " + tentativas + " tentativas restantes.";}
+ });
+ document.getElementById("tentativas").textContent = "Você tem " + tentativas + " tentativas restantes.";
 
 
 //Número aleatório
@@ -33,3 +38,13 @@ const palpite = parseInt(document.getElementById("palpite").value);
 if (palpite <= 100) {
 palpite === numeroSecreto ? alert("Uau!") : alert("poxa, o numero não era esse.")
 };
+
+document.getElementById("chute").addEventListener("click", function() {
+    const palpite = Number(document.getElementById("palpite").value);
+
+    if (numeroSecreto === palpite) {
+      alert("Correto");
+    } else {
+      alert("Incorreto!");
+    }
+  });
