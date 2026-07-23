@@ -24,7 +24,13 @@ document.getElementById("chute").addEventListener("click", function() {
     if (tentativas > 0){
     tentativas -= 1;
     document.getElementById("tentativas").textContent = "Você tem " + tentativas + " tentativas restantes.";}
- });
+
+    if (tentativas === 0){
+        btnChutar.disabled = true;
+        btnDica.disabled = true;
+        alert("Você perdeu! o número era " + numeroSecreto)
+    }
+});
  document.getElementById("tentativas").textContent = "Você tem " + tentativas + " tentativas restantes.";
 
 
@@ -34,17 +40,16 @@ const numeroSecreto = Math.floor(Math.random() * 100) + 1;
 console.log(numeroSecreto);
 
 //Salvar input e comparar
-const palpite = parseInt(document.getElementById("palpite").value);
-if (palpite <= 100) {
-palpite === numeroSecreto ? alert("Uau!") : alert("poxa, o numero não era esse.")
-};
-
 document.getElementById("chute").addEventListener("click", function() {
-    const palpite = Number(document.getElementById("palpite").value);
+    const palpite = parseInt(document.getElementById("palpite").value);
 
     if (numeroSecreto === palpite) {
-      alert("Correto");
-    } else {
-      alert("Incorreto!");
+        alert("Você acertou!");
+    } else if (numeroSecreto > palpite){
+        alert("O número secreto é maior");
+    } else if (numeroSecreto < palpite){
+        alert("O número secreto é menor")
+    } else if (palpite > 100){
+        alert("Siga as regras e pare de gastar suas chances!")
     }
   });
